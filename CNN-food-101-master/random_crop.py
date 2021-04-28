@@ -29,10 +29,7 @@ RESIZE_TO = 224
 TRAIN_SIZE = 101000
 INITIAL_LEARNING_RATE = 0.001
 FIRST_DECAY_STEPS = 100
-CROP_TO_SIZE = 40
-
-file_writer = tf.summary.create_file_writer(log_dir + "/lr")
-file_writer.set_as_default()
+CROP_TO_SIZE = 120
 
 
 def parse_proto_example(proto):
