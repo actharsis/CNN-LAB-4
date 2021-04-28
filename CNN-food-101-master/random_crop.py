@@ -27,6 +27,9 @@ BATCH_SIZE = 16
 NUM_CLASSES = 101
 RESIZE_TO = 224
 TRAIN_SIZE = 101000
+initial_learning_rate = 0.001
+first_decay_steps = 100
+CROP_TO_SIZE = 40
 
 file_writer = tf.summary.create_file_writer(log_dir + "/lr")
 file_writer.set_as_default()
@@ -58,12 +61,11 @@ def create_dataset(filenames, batch_size):
     .batch(batch_size)\
     .prefetch(tf.data.AUTOTUNE)
 
-initial_learning_rate = 0.001
-first_decay_steps = 100
 
 def build_model():
   inputs = tf.keras.Input(shape=(RESIZE_TO, RESIZE_TO, 3))
-  model = EfficientNetB0(include_top=False, weights="imagenet", classes=NUM_CLASSES, input_tensor=inputs)
+  cropped_data = tf.keras.layers.experimental.preprocessing.RandomCrop(CROP_TO_SIZE, CROP_TO_SIZE)(inputs)
+  model = EfficientNetB0(include_top=False, weights="imagenet", classes=NUM_CLASSES, input_tensor=cropped_data)
   model.trainable = False
   x = tf.keras.layers.GlobalAveragePooling2D()(model.output)
   outputs = tf.keras.layers.Dense(NUM_CLASSES, activation=tf.keras.activations.softmax)(x)
