@@ -27,8 +27,8 @@ BATCH_SIZE = 16
 NUM_CLASSES = 101
 RESIZE_TO = 224
 TRAIN_SIZE = 101000
-initial_learning_rate = 0.001
-first_decay_steps = 100
+INITIAL_LEARNING_RATE = 0.001
+FIRST_DECAY_STEPS = 100
 CROP_TO_SIZE = 40
 
 file_writer = tf.summary.create_file_writer(log_dir + "/lr")
@@ -71,7 +71,7 @@ def build_model():
   outputs = tf.keras.layers.Dense(NUM_CLASSES, activation=tf.keras.activations.softmax)(x)
   return tf.keras.Model(inputs=inputs, outputs=outputs)
   
-learning_rate = tf.keras.experimental.CosineDecayRestarts(initial_learning_rate, first_decay_steps)
+learning_rate = tf.keras.experimental.CosineDecayRestarts(INITIAL_LEARNING_RATE, FIRST_DECAY_STEPS)
 
 
 def main():
