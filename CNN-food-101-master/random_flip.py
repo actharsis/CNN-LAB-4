@@ -23,7 +23,7 @@ for gpu in gpus:
 
 LOG_DIR = 'logs'
 log_dir='{}/f101-{}'.format(LOG_DIR, time.time())
-BATCH_SIZE = 64
+BATCH_SIZE = 32
 NUM_CLASSES = 101
 RESIZE_TO = 224
 TRAIN_SIZE = 101000
@@ -60,7 +60,7 @@ def create_dataset(filenames, batch_size):
 
 def build_model():
   inputs = tf.keras.Input(shape=(RESIZE_TO, RESIZE_TO, 3))
-  flipped_data = tf.keras.layers.experimental.preprocessing.RandomFlip(mode="horizontal")(inputs)
+  flipped_data = tf.keras.layers.experimental.preprocessing.RandomFlip(mode="vertical")(inputs)
   model = EfficientNetB0(include_top=False, weights="imagenet", classes=NUM_CLASSES, input_tensor=flipped_data)
   model.trainable = False
   x = tf.keras.layers.GlobalAveragePooling2D()(model.output)
