@@ -2,6 +2,10 @@
 ## Случайное горизонтальное и вертикальное отображение
 Файл: `CNN-food-101-master/random_flip.py`
 
+```python
+flipped_data = tf.keras.layers.experimental.preprocessing.RandomFlip(mode="vertical")(inputs)
+```
+
 ![legend1](https://github.com/actharsis/lab4/blob/main/legends/random_flip.png)
 
 Метрика качества:
@@ -17,6 +21,10 @@
 ## Использование случайной части изображения
 Файл: `CNN-food-101-master/random_crop.py`
 
+```python
+cropped_data = tf.keras.layers.experimental.preprocessing.RandomCrop(CROP_TO_SIZE, CROP_TO_SIZE)(inputs)
+```
+
 ![legend2](https://github.com/actharsis/lab4/blob/main/legends/random_crop.png)
 
 Метрика качества:
@@ -31,19 +39,29 @@
 ## Поворот на случайный угол
 Файл: `CNN-food-101-master/random_rotation.py`
 
-![legend3]()
+```python
+rotated_data = tf.keras.layers.experimental.preprocessing.RandomRotation(factor=0.25, fill_mode="reflect")(inputs)
+```
+
+![legend3](https://github.com/actharsis/lab4/blob/main/legends/random_rotate.png)
 
 Метрика качества:
-![gr5]()
+![gr5](https://github.com/actharsis/lab4/blob/main/graphs/random_rotate/epoch_categorical_accuracy.svg)
 
 Функция ошибок:
-![gr6]()
+![gr6](https://github.com/actharsis/lab4/blob/main/graphs/random_rotate/epoch_loss.svg)
 
 Пример изображений после аугментации:
 
-
+Поворот изображения не дал улучшения результатов при протестированных параметрах. Наилучший результат был достигнут при factor=0.04 и режиме заполнения "nearest", максимальная точность на валидации составила 67.2%, что хуже результатов обучения без аугментации.
 ## Совместное использование всех техник аугментации
 Файл: `CNN-food-101-master/all.py`
+
+```python
+new_data = tf.keras.layers.experimental.preprocessing.RandomCrop(CROP_TO_SIZE, CROP_TO_SIZE)(inputs)
+new_data = tf.keras.layers.experimental.preprocessing.RandomFlip(mode="horizontal")(new_data)
+new_data = tf.keras.layers.experimental.preprocessing.RandomRotation(factor=0.04, fill_mode="nearest")(new_data)
+```
 
 ![legend4]()
 
