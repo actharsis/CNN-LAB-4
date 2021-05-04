@@ -8,7 +8,7 @@ import pathlib
 from datetime import datetime
 import random
 
-data_dir = pathlib.Path('../food-101/images/')
+data_dir = pathlib.Path('/home/administrator/food-101')
 
 logdir = "logs/" + datetime.now().strftime("%Y%m%d-%H%M%S")
 
