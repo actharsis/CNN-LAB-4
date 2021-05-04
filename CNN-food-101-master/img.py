@@ -30,7 +30,7 @@ ar = np.array(images)
 
 #ar = tf.keras.layers.experimental.preprocessing.RandomRotation(factor=0.04, fill_mode='constant')(ar)
 #ar = tf.keras.layers.experimental.preprocessing.RandomCrop(120, 120)(ar)
-ar = tf.keras.layers.experimental.preprocessing.RandomFlip(mode="horizontal")(ar)
+ar = tf.keras.layers.experimental.preprocessing.RandomFlip(mode="vertical")(ar)
 
 with file_writer.as_default():
   	tf.summary.image("Training data", ar, step=1, max_outputs=15)
