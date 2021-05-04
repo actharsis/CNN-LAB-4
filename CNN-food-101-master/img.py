@@ -7,6 +7,7 @@ import glob
 import pathlib
 from datetime import datetime
 import random
+import argparse
 
 data_dir = pathlib.Path('../food-101/images/')
 
