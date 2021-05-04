@@ -2,6 +2,10 @@
 ## Случайное горизонтальное и вертикальное отображение
 Файл: `CNN-food-101-master/random_flip.py`
 
+```python
+flipped_data = tf.keras.layers.experimental.preprocessing.RandomFlip(mode="vertical")(inputs)
+```
+
 ![legend1](https://github.com/actharsis/lab4/blob/main/legends/random_flip.png)
 
 Метрика качества:
@@ -17,6 +21,10 @@
 ## Использование случайной части изображения
 Файл: `CNN-food-101-master/random_crop.py`
 
+```python
+cropped_data = tf.keras.layers.experimental.preprocessing.RandomCrop(CROP_TO_SIZE, CROP_TO_SIZE)(inputs)
+```
+
 ![legend2](https://github.com/actharsis/lab4/blob/main/legends/random_crop.png)
 
 Метрика качества:
@@ -30,6 +38,10 @@
 Наилучшие результаты получились при размере кроппинга 200х200. Максимальное значение точности на валидации - ~63%. Использование случайной части изображения не дало положительных результатов в сравнении с вариантом без аугментации.
 ## Поворот на случайный угол
 Файл: `CNN-food-101-master/random_rotation.py`
+
+```python
+rotated_data = tf.keras.layers.experimental.preprocessing.RandomRotation(factor=0.25, fill_mode="reflect")(inputs)
+```
 
 ![legend3](https://github.com/actharsis/lab4/blob/main/legends/random_rotate.png)
 
