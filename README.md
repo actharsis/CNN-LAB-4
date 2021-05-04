@@ -16,6 +16,14 @@ flipped_data = tf.keras.layers.experimental.preprocessing.RandomFlip(mode="verti
 
 Пример изображений после аугментации:
 
+Horizontal flip:
+![ex6](https://github.com/actharsis/lab4/blob/main/images/horizontal.png)
+
+Vertical flip:
+![ex7](https://github.com/actharsis/lab4/blob/main/images/vertical.png)
+
+Horizontal and vertical flip:
+![ex8](https://github.com/actharsis/lab4/blob/main/images/horizontal_and_vertical.png)
 
 Наилучший результат данного типа аугментации был достигнут при горизонтальном отображении - 67.50% точности на валидации, это на 0.14% выше, чем максимально достигнутая точность без аугментации. Остальные типы отображения снижали точность примерно на 1%.
 ## Использование случайной части изображения
@@ -34,6 +42,8 @@ cropped_data = tf.keras.layers.experimental.preprocessing.RandomCrop(CROP_TO_SIZ
 ![gr4](https://github.com/actharsis/lab4/blob/main/graphs/random_crop/epoch_loss.svg)
 
 Пример изображений после аугментации:
+Cropping size 120x120:
+![ex1](https://github.com/actharsis/lab4/blob/main/images/crop120.png)
 
 Наилучшие результаты получились при размере кроппинга 200х200. Максимальное значение точности на валидации - ~63%. Использование случайной части изображения не дало положительных результатов в сравнении с вариантом без аугментации.
 ## Поворот на случайный угол
@@ -52,6 +62,17 @@ rotated_data = tf.keras.layers.experimental.preprocessing.RandomRotation(factor=
 ![gr6](https://github.com/actharsis/lab4/blob/main/graphs/random_rotate/epoch_loss.svg)
 
 Пример изображений после аугментации:
+factor=0.04, fill_mode=constant:
+![ex2](https://github.com/actharsis/lab4/blob/main/images/factor%3D0.04%2C%20fill_mode%3Dconstant.png)
+
+factor=0.04, fill_mode=nearest:
+![ex3](https://github.com/actharsis/lab4/blob/main/images/factor%3D0.04%2C%20fill_mode%3Dnearest.png)
+
+factor=0.04, fill_mode=reflect:
+![ex4](https://github.com/actharsis/lab4/blob/main/images/factor%3D0.04%2C%20fill_mode%3Dreflect.png)
+
+factor=0.04, fill_mode=wrap:
+![ex5](https://github.com/actharsis/lab4/blob/main/images/factor%3D0.04%2C%20fill_mode%3Dwrap.png)
 
 Поворот изображения не дал улучшения результатов при протестированных параметрах. Наилучший результат был достигнут при factor=0.04 и режиме заполнения "nearest", максимальная точность на валидации составила 67.2%, что хуже результатов обучения без аугментации.
 ## Совместное использование всех техник аугментации
@@ -73,5 +94,6 @@ new_data = tf.keras.layers.experimental.preprocessing.RandomRotation(factor=0.04
 
 Пример изображений после аугментации:
 
+![ex9](https://github.com/actharsis/lab4/blob/main/images/all.png)
 
 ## Анализ результатов
