@@ -57,6 +57,12 @@ rotated_data = tf.keras.layers.experimental.preprocessing.RandomRotation(factor=
 ## Совместное использование всех техник аугментации
 Файл: `CNN-food-101-master/all.py`
 
+```python
+new_data = tf.keras.layers.experimental.preprocessing.RandomCrop(CROP_TO_SIZE, CROP_TO_SIZE)(inputs)
+new_data = tf.keras.layers.experimental.preprocessing.RandomFlip(mode="horizontal")(new_data)
+new_data = tf.keras.layers.experimental.preprocessing.RandomRotation(factor=0.04, fill_mode="nearest")(new_data)
+```
+
 ![legend4]()
 
 Метрика качества:
