@@ -17,13 +17,13 @@
 ## Использование случайной части изображения
 Файл: `CNN-food-101-master/random_crop.py`
 
-![legend1](https://github.com/actharsis/lab4/blob/main/legends/random_flip.png)
+![legend2](https://github.com/actharsis/lab4/blob/main/legends/random_crop.png)
 
 Метрика качества:
-![gr1](https://github.com/actharsis/lab4/blob/main/graphs/random_flip/epoch_categorical_accuracy.svg)
+![gr3](https://github.com/actharsis/lab4/blob/main/graphs/random_crop/epoch_categorical_accuracy.svg)
 
 Функция ошибок:
-![gr2](https://github.com/actharsis/lab4/blob/main/graphs/random_flip/epoch_loss.svg)
+![gr4](https://github.com/actharsis/lab4/blob/main/graphs/random_crop/epoch_loss.svg)
 
 Пример изображений после аугментации:
 
@@ -31,13 +31,13 @@
 ## Поворот на случайный угол
 Файл: `CNN-food-101-master/random_rotation.py`
 
-![legend1](https://github.com/actharsis/lab4/blob/main/legends/random_flip.png)
+![legend3]()
 
 Метрика качества:
-![gr1](https://github.com/actharsis/lab4/blob/main/graphs/random_flip/epoch_categorical_accuracy.svg)
+![gr5]()
 
 Функция ошибок:
-![gr2](https://github.com/actharsis/lab4/blob/main/graphs/random_flip/epoch_loss.svg)
+![gr6]()
 
 Пример изображений после аугментации:
 
@@ -45,13 +45,13 @@
 ## Совместное использование всех техник аугментации
 Файл: `CNN-food-101-master/all.py`
 
-![legend1](https://github.com/actharsis/lab4/blob/main/legends/random_flip.png)
+![legend4]()
 
 Метрика качества:
-![gr1](https://github.com/actharsis/lab4/blob/main/graphs/random_flip/epoch_categorical_accuracy.svg)
+![gr7]()
 
 Функция ошибок:
-![gr2](https://github.com/actharsis/lab4/blob/main/graphs/random_flip/epoch_loss.svg)
+![gr8]()
 
 Пример изображений после аугментации:
 
