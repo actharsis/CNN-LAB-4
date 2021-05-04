@@ -84,13 +84,13 @@ new_data = tf.keras.layers.experimental.preprocessing.RandomFlip(mode="horizonta
 new_data = tf.keras.layers.experimental.preprocessing.RandomRotation(factor=0.04, fill_mode="nearest")(new_data)
 ```
 
-![legend4]()
+![legend4](https://github.com/actharsis/lab4/blob/main/legends/all.png)
 
 Метрика качества:
-![gr7]()
+![gr7](https://github.com/actharsis/lab4/blob/main/graphs/all/epoch_categorical_accuracy.svg)
 
 Функция ошибок:
-![gr8]()
+![gr8](https://github.com/actharsis/lab4/blob/main/graphs/all/epoch_loss.svg)
 
 Пример изображений после аугментации:
 
