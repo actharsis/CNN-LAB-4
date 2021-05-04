@@ -17,7 +17,10 @@ file_writer = tf.summary.create_file_writer(logdir)
 all_images = list(data_dir.glob('*/*'))
 images = []
 for i in range(0, 6):
-	a = PIL.Image.open(str(random.choice(all_images)))
+	args = argparse.ArgumentParser()
+	args.add_argument('--extract', type=str')
+	args = args.parse_args()
+	a = PIL.Image.open(str(random.choice(args.extract)))
 
 	a = a.resize((300, 300), PIL.Image.ANTIALIAS)
 
