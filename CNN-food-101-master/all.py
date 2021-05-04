@@ -62,8 +62,8 @@ def create_dataset(filenames, batch_size):
 def build_model():
   inputs = tf.keras.Input(shape=(RESIZE_TO, RESIZE_TO, 3))
   new_data = tf.keras.layers.experimental.preprocessing.RandomCrop(CROP_TO_SIZE, CROP_TO_SIZE)(inputs)
-  new_data = tf.keras.layers.experimental.preprocessing.RandomFlip(mode="vertical")(new_data)
-  new_data = tf.keras.layers.experimental.preprocessing.RandomRotation(factor=0.25, fill_mode="nearest")(new_data)
+  new_data = tf.keras.layers.experimental.preprocessing.RandomFlip(mode="horizontal")(new_data)
+  new_data = tf.keras.layers.experimental.preprocessing.RandomRotation(factor=0.04, fill_mode="nearest")(new_data)
   model = EfficientNetB0(include_top=False, weights="imagenet", classes=NUM_CLASSES, input_tensor=new_data)
   model.trainable = False
   x = tf.keras.layers.GlobalAveragePooling2D()(model.output)
