@@ -31,13 +31,13 @@
 ## Поворот на случайный угол
 Файл: `CNN-food-101-master/random_rotation.py`
 
-![legend3]()
+![legend3](https://github.com/actharsis/lab4/blob/main/legends/random_rotate.png)
 
 Метрика качества:
-![gr5]()
+![gr5](https://github.com/actharsis/lab4/blob/main/graphs/random_rotate/epoch_categorical_accuracy.svg)
 
 Функция ошибок:
-![gr6]()
+![gr6](https://github.com/actharsis/lab4/blob/main/graphs/random_rotate/epoch_loss.svg)
 
 Пример изображений после аугментации:
 
