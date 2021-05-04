@@ -28,8 +28,8 @@ for i in range(0, 6):
 
 ar = np.array(images)
 
-ar = tf.keras.layers.experimental.preprocessing.RandomRotation(factor=0.04, fill_mode='constant')(ar)
-#ar = tf.keras.layers.experimental.preprocessing.RandomCrop(200, 200)(ar)
+#ar = tf.keras.layers.experimental.preprocessing.RandomRotation(factor=0.04, fill_mode='constant')(ar)
+ar = tf.keras.layers.experimental.preprocessing.RandomCrop(40, 40)(ar)
 #ar = tf.keras.layers.experimental.preprocessing.RandomFlip(mode="horizontal")(ar)
 
 with file_writer.as_default():
